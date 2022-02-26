@@ -9,7 +9,6 @@ from time import time
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
 
-
 def main_frames(name):
     if name == 'pig':
         nose_image = cv2.imread("pig_nose.png")
@@ -20,7 +19,7 @@ def main_frames(name):
         predictor = dlib.shape_predictor(
             "shape_predictor_68_face_landmarks.dat")
         while True:
-            success, frame1 = camera.read()
+            success, frame1 = camera.read()op]
             try:
                 nose_mask.fill(0)
                 gray_frame1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
