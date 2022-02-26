@@ -9,6 +9,7 @@ from time import time
 app = Flask(__name__)
 camera = cv2.VideoCapture(0)
 
+
 def main_frames(name):
     if name == 'pig':
         nose_image = cv2.imread("pig_nose.png")
@@ -19,7 +20,7 @@ def main_frames(name):
         predictor = dlib.shape_predictor(
             "shape_predictor_68_face_landmarks.dat")
         while True:
-            success, frame1 = camera.read()op]
+            success, frame1 = camera.read()
             try:
                 nose_mask.fill(0)
                 gray_frame1 = cv2.cvtColor(frame1, cv2.COLOR_BGR2GRAY)
@@ -35,9 +36,9 @@ def main_frames(name):
                     nose_height = int(nose_width * 0.77)
                     top_left = (int(center_nose[0] - nose_width / 2),
                                 int(center_nose[1] - nose_height / 2))
-                    bottom_right = (int(center_nose[0] + nose_width / 2),
+                    bottom_right=(int(center_nose[0] + nose_width / 2),
                                     int(center_nose[1] + nose_height / 2))
-                    nose_pig = cv2.resize(
+                    nose_pig=cv2.resize(
                         nose_image, (nose_width, nose_height))
                     nose_pig_gray = cv2.cvtColor(nose_pig, cv2.COLOR_BGR2GRAY)
                     _, nose_mask = cv2.threshold(
